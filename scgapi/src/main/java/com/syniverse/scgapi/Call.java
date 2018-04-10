@@ -250,6 +250,8 @@ public class Call extends BaseData {
          * @throws ScgException on error
          */
         public BaseData.ItemItetaror<Call> list(Map<String, String> options) throws ScgException {
+        	
+        	//TODO -->> may need to be toggled back, modified to overcome generics issue...
             return genericList(options, null, opts -> {
                 return ExecuteWithRetry(() -> {
                     return (BaseData.ListReturnMapper)Session.Execute(callApi_.list(opts));
@@ -276,12 +278,13 @@ public class Call extends BaseData {
          */
         public BaseData.ItemItetaror<Call> list(Map<String, String> options,
                 ListParameters parameters) throws ScgException {
-
-            return ExecuteWithRetry(() -> {
+        	
+            return (ItemItetaror<Call>) ExecuteWithRetry(() -> {
                 return genericList(options, parameters, opts -> {
                     return (BaseData.ListReturnMapper)Session.Execute(callApi_.list(opts));
                 });
             }, 0);
+            
         }
 
         /**

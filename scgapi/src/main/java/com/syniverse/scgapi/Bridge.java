@@ -227,12 +227,20 @@ public class Bridge extends BaseData {
          */
         public ItemItetaror<Bridge> list(Map<String, String> options,
                 ListParameters parameters) throws ScgException {
-
-            return ExecuteWithRetry(() -> {
+        	
+        	//TODO -->> may need to be toggled back, modified to overcome generics issue...
+            return (ItemItetaror<Bridge>) ExecuteWithRetry(() -> {
                 return genericList(options, parameters, opts -> {
                     return (ListReturnMapper)Session.Execute(bridgeApi_.list(opts));
                 });
             }, 0);
+            
+//            return ExecuteWithRetry(() -> {
+//                return genericList(options, parameters, opts -> {
+//                    return (ListReturnMapper)Session.Execute(bridgeApi_.list(opts));
+//                });
+//            }, 0);
+            
         }
 
         /**

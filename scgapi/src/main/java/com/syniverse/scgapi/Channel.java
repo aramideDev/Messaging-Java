@@ -265,8 +265,8 @@ public class Channel extends BaseData {
          */
         public ItemItetaror<Channel> list(Map<String, String> options,
                 ListParameters parameters) throws ScgException {
-
-            return ExecuteWithRetry(() -> {
+        	
+        	return (ItemItetaror<Channel>) ExecuteWithRetry(() -> {
                 return genericList(options, parameters, opts -> {
                     return (ListReturnMapper)Session.Execute(channelApi_.list(opts));
                 });
