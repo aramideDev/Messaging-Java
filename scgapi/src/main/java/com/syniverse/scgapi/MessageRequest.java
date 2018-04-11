@@ -176,6 +176,11 @@ public class MessageRequest extends BaseData {
      * @return sent count
      */
     public Long getSentCount() {
+    	
+    	if (sent_count == null) {
+    		return 0L;
+    	}
+    	
         return sent_count;
     }
 
@@ -188,6 +193,9 @@ public class MessageRequest extends BaseData {
      * @return delivered count
      */
     public Long getDeliveredCount() {
+    	if (delivered_count == null) {
+    		return 0L;
+    	}
         return delivered_count;
     }
 
@@ -201,6 +209,9 @@ public class MessageRequest extends BaseData {
      * @return read count
      */
     public Long getReadCount() {
+    	if (read_count == null) {
+    		return 0L;
+    	}
         return read_count;
     }
 
@@ -224,6 +235,9 @@ public class MessageRequest extends BaseData {
      * @return canceled count
      */
     public Long getCanceledCount() {
+    	if (canceled_count == null) {
+    		return 0L;
+    	}
         return canceled_count;
     }
 
@@ -232,6 +246,9 @@ public class MessageRequest extends BaseData {
      * @return The number of messages that have expired or have failed delivery
      */
     public Long getFailedCount() {
+    	if (failed_count == null) {
+    		return 0L;
+    	}
         return failed_count;
     }
 
